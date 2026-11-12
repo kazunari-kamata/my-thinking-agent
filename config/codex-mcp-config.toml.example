@@ -1,0 +1,20 @@
+# このfileは仕組みを確認するためのsample。通常はcopyや手編集をしない。
+# project directoryで `make start` を実行して、この端末用の .codex/config.toml を作る。
+# Codexがprojectの .codex configurationを読込むには、そのprojectをtrustedにする必要がある。
+# 各端末固有の絶対pathはGitへcommitしない。会話学習で参照を許可するworkspaceは、
+# `make repl` のmenu 4、または `make learning-add SOURCE=name=../path` で追加する。
+# relative pathはproject root基準で解決され、configにはabsolute pathとして保存される。
+# 未設定directoryをMCPが読むことはない。
+
+[mcp_servers.personal_knowledge]
+command = "uv"
+args = ["run", "--directory", "/ABSOLUTE/PATH/TO/my-thinking-agent", "personal-knowledge-mcp"]
+enabled_tools = ["list_principles", "search_decisions", "read_decision", "create_decision", "update_decision", "delete_decision", "list_archived_decisions", "restore_decision", "list_learning_sources", "search_learning_sources", "read_learning_source", "prepare_conversation_learning", "save_conversation_learning"]
+default_tools_approval_mode = "approve"
+startup_timeout_sec = 10
+tool_timeout_sec = 30
+
+[mcp_servers.personal_knowledge.env]
+MY_THINKING_AGENT_KNOWLEDGE_ROOT = "/ABSOLUTE/PATH/TO/private-knowledge"
+# Optional: a JSON object mapping a short source name to an absolute directory.
+# MY_THINKING_AGENT_LEARNING_SOURCES = "{\"current-codex\":\"/ABSOLUTE/PATH/TO/workspace\"}"
