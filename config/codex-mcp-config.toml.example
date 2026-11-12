@@ -1,0 +1,15 @@
+# ローカルの情報境界を確認してから、このfileを .codex/config.toml へcopyする。
+# Codexがprojectの .codex configurationを読込むには、そのprojectをtrustedにする必要がある。
+# 各端末固有の絶対pathはGitへcommitしない。このfileを手動で編集する代わりに、
+# `make configure-mcp KNOWLEDGE_ROOT=/path/to/private-knowledge` を推奨する。
+
+[mcp_servers.personal_knowledge]
+command = "uv"
+args = ["run", "--directory", "/ABSOLUTE/PATH/TO/my-thinking-agent", "personal-knowledge-mcp"]
+enabled_tools = ["list_principles", "search_decisions", "read_decision", "create_decision", "update_decision", "delete_decision", "list_archived_decisions", "restore_decision"]
+default_tools_approval_mode = "approve"
+startup_timeout_sec = 10
+tool_timeout_sec = 30
+
+[mcp_servers.personal_knowledge.env]
+MY_THINKING_AGENT_KNOWLEDGE_ROOT = "/ABSOLUTE/PATH/TO/private-knowledge"
