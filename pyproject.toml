@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "my-thinking-agent"
+version = "0.1.0"
+description = "A local-first personal decision-support MCP server with approved CRUD."
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+personal-knowledge-mcp = "my_thinking_agent.mcp_server:main"
+personal-knowledge-onboard = "my_thinking_agent.onboarding:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

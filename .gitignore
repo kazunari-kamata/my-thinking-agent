@@ -1,0 +1,19 @@
+# Local Codex configuration and credentials
+.codex/config.toml
+.env
+
+# Personal source material: add it locally, never by default to Git.
+knowledge/private/
+knowledge/decisions/*
+!knowledge/decisions/README.md
+!knowledge/decisions/example-reversible-automation.md
+!SESSION.md
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+dist/
+build/
+*.egg-info/
